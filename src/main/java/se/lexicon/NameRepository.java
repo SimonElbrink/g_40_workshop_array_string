@@ -31,7 +31,6 @@ public class NameRepository {
         return null;
     }
 
-
     public static boolean add(final String fullName) {
         //1. Does it exist?
         if (find(fullName) != null) {
@@ -39,11 +38,71 @@ public class NameRepository {
         }
 
         //2. if not add to existing array.
-        String[] newArray = Arrays.copyOf(names, names.length + 1);
-        newArray[newArray.length - 1] = fullName;
-        NameRepository.names = newArray;
+        NameRepository.names = addToArray(names, fullName);
         return true;
     }
 
+    public static String[] findByFirstName(final String firstName){
+
+        String[] matches = new String[0];
+
+        for (String fullName : names) {
+
+            String fName = fullName.substring(0, fullName.indexOf(' '));
+            if (fName.equalsIgnoreCase(firstName)){
+                matches = addToArray(matches, fullName);
+            }
+        }
+
+        return matches;
+    }
+
+    public static String[] findByLastName(final String lastName){
+
+        String[] result = new String[0];
+
+        for (String fullName : names){
+
+            String lName = fullName.substring(fullName.indexOf(' ') +1);
+
+            if (lName.equalsIgnoreCase(lastName)){
+                result = addToArray(result, fullName);
+            }
+        }
+        return result;
+    }
+
+    public static boolean update(final String original, final String updatedName){
+        int originalIndex = arrayIndexOf(names, original);
+        if (originalIndex == -1){
+            return false;
+        }
+
+        int updatedIndex = arrayIndexOf(names, updatedName);
+        if (updatedIndex != -1){
+            return false;
+        }
+
+        names[originalIndex] = updatedName;
+        return true;
+    }
+
+    private static int arrayIndexOf(String[] array, String string){
+        for (int i = 0; i < array.length; i++){
+
+            String temp = array[i];
+
+            if (temp.equalsIgnoreCase(string)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private static String[] addToArray(String[] source, String stringToAdd){
+        String[] temp = Arrays.copyOf(source, source.length +1);
+        temp[temp.length -1] = stringToAdd;
+        return temp;
+    }
 
 }

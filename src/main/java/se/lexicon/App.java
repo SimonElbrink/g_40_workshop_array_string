@@ -12,7 +12,10 @@ public class App
     {
         System.out.println(Arrays.toString(NameRepository.findAll()));
 
-        String[] names = {"Erik Svensson", "Simon Elbrink", "Ulf Bengtsson"};
+        String[] names = {
+                "Manaf A",	"Gvargis Demir","Gvargis A","Gvargis B","Gvargis C", "Heilo A",	"Samaar A",
+                "Raghad A", "Tobias A", "Emil A",	"Darwen A"
+        };
         NameRepository.setNames(names);
         System.out.println(Arrays.toString(NameRepository.findAll()));
         System.out.println(NameRepository.getSize()); //3
@@ -23,13 +26,25 @@ public class App
 //        System.out.println(NameRepository.find("Kent"));
 
 
-        boolean wasAdded = NameRepository.add("Emil Johansson");
+        boolean wasAdded = NameRepository.add("Simon asdf");
+//
+//        System.out.println("wasAdded = " + wasAdded);
+//
+//        System.out.println(Arrays.toString(NameRepository.findAll()));
 
-        System.out.println("wasAdded = " + wasAdded);
+
+//        String[] aAsLastName = NameRepository.findByLastName("a");
+//
+//        System.out.println(Arrays.toString(aAsLastName));
+//
+
+        System.out.println(Arrays.toString(NameRepository.findByFirstName("Simon")));
+
+        boolean isUpdated = NameRepository.update("Simon asdf", "Simon Elbrink");
+
+        System.out.println("isUpdated = " + isUpdated);
 
         System.out.println(Arrays.toString(NameRepository.findAll()));
-
-
 
     }
 }
