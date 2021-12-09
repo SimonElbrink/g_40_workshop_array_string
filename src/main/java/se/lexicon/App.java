@@ -17,8 +17,19 @@ public class App
         System.out.println(Arrays.toString(NameRepository.findAll()));
         System.out.println(NameRepository.getSize()); //3
 
-        NameRepository.clear();
+//        NameRepository.clear();
+//        System.out.println(Arrays.toString(NameRepository.findAll()));
+
+//        System.out.println(NameRepository.find("Kent"));
+
+
+        boolean wasAdded = NameRepository.add("Emil Johansson");
+
+        System.out.println("wasAdded = " + wasAdded);
+
         System.out.println(Arrays.toString(NameRepository.findAll()));
+
+
 
     }
 }
