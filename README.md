@@ -3,7 +3,7 @@
 ## Part 1
 
 1. Create a Maven project.
-2. Create a new class called **``NameRepository``**.
+2. Create a new class called **``NameRepository``**  :
 3. Inside **`NameRepository`** create a private static empty array of String called **``names``**.
 4. Define following methods:
 
@@ -19,7 +19,7 @@
 
 ## Part 2
 
-1. Define the following methods in NameRepository:
+1. Define the following methods in **`NameRepository`** :
 
 **`public static String find(final String fullName)`** - name if found and null if not found.
 
@@ -29,7 +29,7 @@
 
 ## Part 3
 
-Define the following methods in NameRepository:
+1. Define the following methods in **`NameRepository`** :
 
 **`public static String[] findByFirstName(final String firstName)`** - Searches the array trying to find all names that has passed in first name. Returns a String array containing all
 matches.
