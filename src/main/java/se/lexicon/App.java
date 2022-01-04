@@ -6,46 +6,67 @@ import java.util.Arrays;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println(Arrays.toString(NameRepository.findAll()));
+        int size = NameRepository.getSize();
+        System.out.println("size = " + size); //0
 
-        String[] names = {
-                "Manaf A",	"Gvargis Demir","Gvargis A","Gvargis B","Gvargis C", "Heilo A",	"Samaar A",
-                "Raghad A", "Tobias A", "Emil A",	"Darwen A"
-        };
-        NameRepository.setNames(names);
-        System.out.println(Arrays.toString(NameRepository.findAll()));
-        System.out.println(NameRepository.getSize()); //3
+        String[] g40 = {"Pär Törnell", "Susanne Cederholm", "Susanne Petersson", "Antoine Rebelo", "Simon Elbrink", "Emil Johansson"};
+
+        NameRepository.setNames(g40);
+
+        size = NameRepository.getSize();
+        System.out.println("size = " + size); // 5
 
 //        NameRepository.clear();
-//        System.out.println(Arrays.toString(NameRepository.findAll()));
-
-//        System.out.println(NameRepository.find("Kent"));
-
-
-        boolean wasAdded = NameRepository.add("Simon asdf");
 //
-//        System.out.println("wasAdded = " + wasAdded);
-//
-//        System.out.println(Arrays.toString(NameRepository.findAll()));
+//        size = NameRepository.getSize();
+//        System.out.println("size = " + size); //0
+
+        String[] all = NameRepository.findAll();
+
+        all[3] = "Mehrdad";
+
+        for (String name : all) {
+            System.out.println(name);
+        }
 
 
-//        String[] aAsLastName = NameRepository.findByLastName("a");
-//
-//        System.out.println(Arrays.toString(aAsLastName));
-//
+        System.out.println("find all again");
+        String[] all1 = NameRepository.findAll();
 
-        System.out.println(Arrays.toString(NameRepository.findByFirstName("Simon")));
+        for (String name : all1) {
+            System.out.println(name);
+        }
 
-        boolean isUpdated = NameRepository.update("Simon asdf", "Simon Elbrink");
 
-        System.out.println("isUpdated = " + isUpdated);
+        String foundName = NameRepository.find("pär");
+
+        System.out.println("foundName = " + foundName);
+
+
+        NameRepository.add("Erik Svensson");
 
         System.out.println(Arrays.toString(NameRepository.findAll()));
+
+
+        NameRepository.add("Ulf Begntsson");
+
+        System.out.println(Arrays.toString(NameRepository.findAll()));
+
+
+        System.out.println(Arrays.toString(NameRepository.findByFirstName("Susanne")));
+
+        System.out.println(NameRepository.update("Susanne Petersson", "Susanna Elbrink"));
+
+        System.out.println(Arrays.toString(NameRepository.findByLastName("Elbrink")));
+
+        System.out.println(NameRepository.remove("Simon Elbrink"));
+
+        System.out.println(NameRepository.find("Simon Elbrink"));
+
 
     }
 }
-

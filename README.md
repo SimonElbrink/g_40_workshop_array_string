@@ -38,5 +38,10 @@ matches.
 Searches the array trying to find all names that has passed in last name. Returns a String array containing all
 matches.
 
-**`public static boolean update(final String original, final String updatedName)`** - Should find a name and replace it with new fullName if available. Returns true if name was found and updated with the new name. False if name could not be updated because name was’t found or name was found but an
-existing name matching the updatedName already exists.
+**`public static boolean update(final String original, final String updatedName)`** - Should find a name and replace it with new fullName if available. Returns true if name was found and updated with the new name. False if name could not be updated because name was’t found or name was found but an existing name matching the updatedName already exists.
+
+
+## Part 4
+1. Define the following method in NameRepository:
+
+**`public static boolean remove(final String fullName)`** - Should remove a name from the array. Returns true if name was removed and false if the name was not removed for some reason
